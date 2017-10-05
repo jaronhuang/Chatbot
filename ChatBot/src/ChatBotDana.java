@@ -9,11 +9,11 @@ import java.util.Random;
 public class ChatBotDana {
 
 	int emotion = 0;
+	int responseCount = 0;
 	
 	public String getGreeting()
 	{
-		System.out.println("Welcome, I'm the music chatbot!");
-		return getResponse();
+		return "Welcome, I'm the music chatbot! How's it going?";
 	}
 	
 	String refPronoun = "";
@@ -44,22 +44,33 @@ public class ChatBotDana {
 	private String getResponse(String statement)
 	{
 		String chosenResponse = "";
-		
-		if (emotion > 0)
-		{
-			chosenResponse = randomPositiveResponses[r.nextInt(randomPositiveResponses.length)];
-		}
-		if (emotion < 0)
-		{
-			chosenResponse = randomNegativeResponses[r.nextInt(randomNegativeResponses.length)];
-		}
-		else 
-		{
-			chosenResponse = randomNeutralResponses[r.nextInt(randomNeutralResponses.length)];
-		}
-		
 		statement = statement.trim();
 		String response = "";
+		
+		if (responseCount == 0)
+		{
+			chosenResponse = getRandomStarterQuestion();
+		}
+		
+		if (responseCount%3 == 0)
+		{
+			chosenResponse = getRandomQuestion();
+		}
+		else
+		{	
+			if (emotion > 0)
+			{
+				chosenResponse = randomPositiveResponses[r.nextInt(randomPositiveResponses.length)];
+			}
+			if (emotion < 0)
+			{
+				chosenResponse = randomNegativeResponses[r.nextInt(randomNegativeResponses.length)];
+			}
+			else 
+			{
+				chosenResponse = randomNeutralResponses[r.nextInt(randomNeutralResponses.length)];
+			}
+		}
 		
 		if (statement.length() == 0)
 		{
@@ -69,6 +80,7 @@ public class ChatBotDana {
 		{
 			response = chosenResponse + "."; 
 		}
+		
 		return response; 
 	}
 }
