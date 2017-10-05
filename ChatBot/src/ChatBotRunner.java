@@ -4,7 +4,6 @@ public class ChatBotRunner
 {
 	public static void main(String[] args)
 	{
-		
 		System.out.println ("How are you?");
 		Scanner in = new Scanner (System.in);
 		String statement = in.nextLine();
