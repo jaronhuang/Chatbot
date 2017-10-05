@@ -1,4 +1,5 @@
 import java.util.Random;
+//Jaron
 
 public class ChatBotHuang 
 {
@@ -59,7 +60,7 @@ public class ChatBotHuang
 		
 		else if (findKeyword(statement, "yes") >= 0)
 		{
-			response = "I also like that too!";
+			response = "I also like to too!";
 			emotion++;
 		}
 		else if (findKeyword(statement, "I like to", 0) >= 0)
@@ -68,7 +69,7 @@ public class ChatBotHuang
 		}
 		else
 		{
-			response = getRandomResponse();
+			response = getRandomQuestion();
 		}
 		
 		return response;
@@ -88,30 +89,25 @@ public class ChatBotHuang
 		return "Why do you like to " + restOfStatement + "?";
 	}
 	
-	private String transformIYouStatement(String statement)
-	{
-		statement = statement.trim();
-		String lastChar = statement.substring(statement.length() - 1);
-		if (lastChar.equals("."))
-		{
-			statement = statement.substring(0, statement.length() - 1);
-		}
-		
-		int psnOfI = findKeyword (statement, "I", 0);
-		int psnOfYou = findKeyword (statement, "you", psnOfI);
-		
-		String restOfStatement = statement.substring(psnOfI + 1, psnOfYou).trim();
-		return "Why do you " + restOfStatement + " me?";
-	}
-	
-	
 	private String getRandomQuestion ()
 	{
 		Random r = new Random ();
-		return [r.nextInt(randomMovieGenre.length)];
+		if (emotion == 0)
+		{
+			return randomMovieGenre [r.nextInt(randomMovieGenre.length)];
+		}
+		if (emotion < 0)
+		{
+			return randomDislikeMovie [r.nextInt(randomDislikeMovie.length)];
+		}
+		return randomEnjoyMovie [r.nextInt(randomEnjoyMovie.length)];
 	}
 	
 	private String [] randomMovieGenre = {"Do you like to watch action movies?", "Do you like to watch horror movies?", 
 			"Do you like to watch adventure movies?", " Do you like to watch comedy movies?"};
+	private String [] randomDislikeMovie = {"What movies did you not enjoy?", "What movie was overhyped in your opinion?",
+			"What movie franchise do you not like?", "Which villian do you dislike?", "Did you enjoy watching IT?"};
+	private String [] randomEnjoyMovie = {"What is your favorite movie?", "What movie franchise is your favorite?",
+			"Who is your favorite movie character of all time?", "Who is your favorite superhero?"};
 	}
 

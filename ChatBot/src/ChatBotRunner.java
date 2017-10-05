@@ -1,4 +1,4 @@
-import java.util.Scanner;
+mport java.util.Scanner;
 
 public class ChatBotRunner 
 {
@@ -15,23 +15,33 @@ public class ChatBotRunner
 		{
 			ChatBotHuang chatbot1 = new ChatBotHuang();
 			System.out.println (chatbot1.getGreeting());
+			while (!statement.equals("Bye"))
+			{
+				System.out.println (chatbot1.getResponse(statement));
+				statement = in.nextLine();
+			}
 		}
 		if (response.toLowerCase().equals("music"))
 		{
-			ChatBotRavvin chatbot1 = new ChatBotRavvin();
-			System.out.println (chatbot1.getGreeting());
+			ChatBotDana chatbot1 = new ChatBotDana();
+			//System.out.println (chatbot1.getGreeting());
+			while (!statement.equals("Bye"))
+			{
+				//System.out.println (chatbot1.getResponse(statement));
+				statement = in.nextLine();
+			}
 		}
 		if (response.toLowerCase().equals("tv"))
 		{
 			ChatBotHasan chatbot1 = new ChatBotHasan();
-			System.out.println (chatbot1.getGreeting());
+			//System.out.println (chatbot1.getGreeting());
+			while (!statement.equals("Bye"))
+			{
+				//System.out.println (chatbot1.getResponse(statement));
+				statement = in.nextLine();
+			}
 		}
 		
-		while (!statement.equals("Bye"))
-		{
-			System.out.println (chatbot1.getResponse(statement));
-			statement = in.nextLine();
-		}
 	}
 	
 }
