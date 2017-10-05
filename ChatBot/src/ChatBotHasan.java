@@ -6,6 +6,7 @@
 public class ChatBotHasan
 {
 	int userSilence=0;
+	boolean silentTreatment=false;
 	private int findKeyword(String response, String keyword, int startPos)
 	{
 		String testResponse=response.toLowerCase();
@@ -81,11 +82,39 @@ public class ChatBotHasan
 	public String getResponse(String userSays)
 	{
 		String response="";
-		if(userSays.length()==0)
+		if(userSays.trim().length()==0)
 		{
-			response="";
+			userSilence++;
+			response=respondToSilence();
+		}
+		else if(userSilence>0)
+		{
+			userSilence--;
 		}
 		return response;
+	}
+	public String respondToSilence()
+	{
+		if(!silentTreatment)
+		{
+			if(userSilence==1)
+			{
+				return "Why so quiet?";
+			}
+			if(userSilence==2)
+			{
+				return "Please say something.";
+			}
+			if(userSilence==3)
+			{
+				return "This is getting annoying.";
+			}
+			if(userSilence==4)
+			{
+				return "Fine, I'm gonna give you the silent treatment as well!";
+			}
+		}
+		return "...";
 	}
 	private String[] greetings= {"Hello!","Hi!","Howdy!","What's up?"};
 }
