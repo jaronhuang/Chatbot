@@ -4,6 +4,7 @@ public class ChatBotRunner
 {
 	public static void main(String[] args)
 	{
+		
 		System.out.println ("How are you?");
 		Scanner in = new Scanner (System.in);
 		String statement = in.nextLine();
@@ -23,20 +24,20 @@ public class ChatBotRunner
 		if (response.toLowerCase().equals("music"))
 		{
 			ChatBotDana chatbot1 = new ChatBotDana();
-			//System.out.println (chatbot1.getGreeting());
+			System.out.println (chatbot1.getGreeting());
 			while (!statement.equals("Bye"))
 			{
-				//System.out.println (chatbot1.getResponse(statement));
+				System.out.println (chatbot1.getResponse(statement));
 				statement = in.nextLine();
 			}
 		}
 		if (response.toLowerCase().equals("tv"))
 		{
 			ChatBotHasan chatbot1 = new ChatBotHasan();
-			//System.out.println (chatbot1.getGreeting());
+			System.out.println (chatbot1.getGreeting());
 			while (!statement.equals("Bye"))
 			{
-				//System.out.println (chatbot1.getResponse(statement));
+				System.out.println (chatbot1.getResponse(statement));
 				statement = in.nextLine();
 			}
 		}

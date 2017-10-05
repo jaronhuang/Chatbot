@@ -1,5 +1,4 @@
 import java.util.Random;
-//Jaron
 
 public class ChatBotHuang 
 {
