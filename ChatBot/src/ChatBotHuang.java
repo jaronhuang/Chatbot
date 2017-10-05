@@ -1,4 +1,5 @@
 import java.util.Random;
+//Jaron
 
 public class ChatBotHuang 
 {
@@ -66,11 +67,18 @@ public class ChatBotHuang
 		{
 			response = transformILikeToStatement(statement);
 		}
+		else if (findKeyword(statement, "Fast and Furious", 0) >= 0)
+		{
+			response = "Can you guess my favorite character in the fast and furious?";
+		}
+		else if (findKeyword(statement, "Dom", 0) >= 0 || findKeyword(statement, "Brian", 0) >= 0 || findKeyword(statement, "Roman", 0) >= 0)
+		{
+			return getRandomGuess();
+		}
 		else
 		{
 			response = getRandomQuestion();
 		}
-		
 		return response;
 	}
 	
@@ -88,6 +96,18 @@ public class ChatBotHuang
 		return "Why do you like to " + restOfStatement + "?";
 	}
 	
+	private String guessGame(String statement)
+	{
+		if (findKeyword(statement, "Dom", 0) >= 0 || findKeyword(statement, "Brian", 0) >= 0 || findKeyword(statement, "Roman", 0) >= 0)
+		{
+			return getRandomGuess();
+		}
+		else
+		{
+			return "Haha! You didn't guess my character!";
+		}
+	}
+	
 	private String getRandomQuestion ()
 	{
 		Random r = new Random ();
@@ -102,11 +122,18 @@ public class ChatBotHuang
 		return randomEnjoyMovie [r.nextInt(randomEnjoyMovie.length)];
 	}
 	
+	private String getRandomGuess()
+	{
+		Random r = new Random ();
+		return randomGuessed [r.nextInt(randomGuessed.length)];
+	}
+	
 	private String [] randomMovieGenre = {"Do you like to watch action movies?", "Do you like to watch horror movies?", 
 			"Do you like to watch adventure movies?", " Do you like to watch comedy movies?"};
 	private String [] randomDislikeMovie = {"What movies did you not enjoy?", "What movie was overhyped in your opinion?",
 			"What movie franchise do you not like?", "Which villian do you dislike?", "Did you enjoy watching IT?"};
 	private String [] randomEnjoyMovie = {"What is your favorite movie?", "What movie franchise is your favorite?",
 			"Who is your favorite movie character of all time?", "Who is your favorite superhero?"};
+	private String [] randomGuessed = {"How did you guess?!?!", "Who told you?", "You're a genius!"};
 	}
 
