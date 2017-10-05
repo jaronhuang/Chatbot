@@ -95,18 +95,6 @@ public class ChatBotHuang
 		return "Why do you like to " + restOfStatement + "?";
 	}
 	
-	private String guessGame(String statement)
-	{
-		if (findKeyword(statement, "Dom", 0) >= 0 || findKeyword(statement, "Brian", 0) >= 0 || findKeyword(statement, "Roman", 0) >= 0)
-		{
-			return getRandomGuess();
-		}
-		else
-		{
-			return "Haha! You didn't guess my character!";
-		}
-	}
-	
 	private String getRandomQuestion ()
 	{
 		Random r = new Random ();
