@@ -5,6 +5,7 @@
 */
 public class ChatBotHasan
 {
+	int userSilence=0;
 	private int findKeyword(String response, String keyword, int startPos)
 	{
 		String testResponse=response.toLowerCase();
@@ -65,7 +66,6 @@ public class ChatBotHasan
 	}
 	public String getGreeting()
 	{
-		String[] greetings= {"Hello!","Hi!","Howdy!","What's up?"};
 		return greetings[getRandomInteger(0,greetings.length)];
 	}
 	private int getRandomInteger(int low, int high)
@@ -78,4 +78,14 @@ public class ChatBotHasan
 		}
 		return (int)(Math.random()*(high-(low-1))+low);
 	}
+	public String getResponse(String userSays)
+	{
+		String response="";
+		if(userSays.length()==0)
+		{
+			response="";
+		}
+		return response;
+	}
+	private String[] greetings= {"Hello!","Hi!","Howdy!","What's up?"};
 }
