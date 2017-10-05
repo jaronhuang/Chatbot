@@ -13,7 +13,7 @@ public class ChatBotDana {
 	public String getGreeting()
 	{
 		System.out.println("Welcome, I'm the music chatbot!");
-		return getResponse;
+		return getResponse();
 	}
 	
 	String refPronoun = "";
