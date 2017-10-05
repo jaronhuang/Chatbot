@@ -63,4 +63,19 @@ public class ChatBotHasan
 		}
 		return where;
 	}
+	public String getGreeting()
+	{
+		String[] greetings= {"Hello!","Hi!","Howdy!","What's up?"};
+		return greetings[getRandomInteger(0,greetings.length)];
+	}
+	private int getRandomInteger(int low, int high)
+	{
+		if(high<low)
+		{
+			int x=low;
+			low=high;
+			high=x;
+		}
+		return (int)(Math.random()*(high-(low-1))+low);
+	}
 }
