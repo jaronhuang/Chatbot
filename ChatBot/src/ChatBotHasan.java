@@ -1,7 +1,7 @@
 /*
 *	Author: Amir Hasan
-*	Last Updated: 10-4-17
-*	Description: My chatbot
+*	Last Updated: 10-6-17
+*	Description: My chatbot, with the theme of TV shows.
 */
 public class ChatBotHasan
 {
@@ -136,4 +136,6 @@ public class ChatBotHasan
 		return "...";
 	}
 	private String[] greetings= {"Hello!","Hi!","Howdy!","What's up?"};
+	private String[] tvShows= {};
+	private String[] tvGenres= {};
 }
