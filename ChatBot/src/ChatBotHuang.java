@@ -1,5 +1,9 @@
 import java.util.Random;
-
+/*
+ * Jaron Huang
+ * 10/4/17
+ * Movie Chatbot
+ */
 public class ChatBotHuang 
 {
 	int emotion = 0;
@@ -9,8 +13,7 @@ public class ChatBotHuang
 		return "Hi, I'm the movie chatbot! What's going on?";
 	}
 	
-	private int findKeyword(String statement, String goal,
-			int startPos)
+	private int findKeyword(String statement, String goal, int startPos)
 	{
 		String phrase = statement.trim().toLowerCase();
 		goal = goal.toLowerCase();
@@ -56,22 +59,24 @@ public class ChatBotHuang
 			response = "Why not?";
             emotion--;
 		}
-		
 		else if (findKeyword(statement, "yes") >= 0)
 		{
 			response = "I also like to too!";
 			emotion++;
 		}
-		else if (findKeyword(statement, "I like to", 0) >= 0)
-		{
-			response = transformILikeToStatement(statement);
-		}
 		else if (findKeyword(statement, "Fast and Furious", 0) >= 0)
 		{
 			response = "Can you guess my favorite character in the fast and furious?";
+			emotion++;
+		}
+		else if (findKeyword(statement, "Star Wars", 0) >= 9)
+		{
+			response = "Star Wars is one of my favorite frachise!";
+			emotion++;
 		}
 		else if (findKeyword(statement, "Dom", 0) >= 0 || findKeyword(statement, "Brian", 0) >= 0 || findKeyword(statement, "Roman", 0) >= 0)
 		{
+			emotion++;
 			return getRandomGuess();
 		}
 		else
@@ -79,20 +84,6 @@ public class ChatBotHuang
 			response = getRandomQuestion();
 		}
 		return response;
-	}
-	
-	private String transformILikeToStatement(String statement)
-	{
-		//  Remove the final period, if there is one
-		statement = statement.trim();
-		String lastChar = statement.substring(statement.length() - 1);
-		if (lastChar.equals("."))
-		{
-			statement = statement.substring(0, statement.length() - 1);
-		}
-		int psn = findKeyword (statement, "I like to", 0);
-		String restOfStatement = statement.substring(psn + 9).trim();
-		return "Why do you like to " + restOfStatement + "?";
 	}
 	
 	private String getRandomQuestion ()
@@ -121,6 +112,7 @@ public class ChatBotHuang
 			"What movie franchise do you not like?", "Which villian do you dislike?", "Did you enjoy watching IT?"};
 	private String [] randomEnjoyMovie = {"What is your favorite movie?", "What movie franchise is your favorite?",
 			"Who is your favorite movie character of all time?", "Who is your favorite superhero?"};
-	private String [] randomGuessed = {"How did you guess?!?!", "Who told you?", "You're a genius!"};
+	private String [] randomGuessed = {"How did you guess my favorite movie character?!?!", "Who told you my favorite movie character?", 
+			"You're a genius! How'd you guess my favorite movie character?"};
 	}
 
