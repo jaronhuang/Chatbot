@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.lang.Math;
 /*
  * Jaron Huang
  * 10/4/17
@@ -81,12 +82,20 @@ public class ChatBotHuang
 		}
 		else
 		{
-			response = getRandomQuestion();
+			int hold = (int)(Math.random() * 10 + 1);
+			if (hold % 2 == 0)
+			{
+				response = getRandomQuestion();
+			}
+			else
+			{
+				response = getRandomStatement();
+			}
 		}
 		return response;
 	}
 	
-	private String getRandomQuestion ()
+	private String getRandomQuestion()
 	{
 		Random r = new Random ();
 		if (emotion == 0)
@@ -100,6 +109,11 @@ public class ChatBotHuang
 		return randomEnjoyMovie [r.nextInt(randomEnjoyMovie.length)];
 	}
 	
+	private String getRandomStatement()
+	{
+		random r = new Random();
+		return randomFillerStatement [r.nextInt(randomFillerStatement.length)];
+	}
 	private String getRandomGuess()
 	{
 		Random r = new Random ();
@@ -114,5 +128,9 @@ public class ChatBotHuang
 			"Who is your favorite movie character of all time?", "Who is your favorite superhero?"};
 	private String [] randomGuessed = {"How did you guess my favorite movie character?!?!", "Who told you my favorite movie character?", 
 			"You're a genius! How'd you guess my favorite movie character?"};
+	private String [] randomFillerStatement = {"Tell me about your most recent movie you watched.", "Give me a good movie to watch!",
+			"I remember when I fell asleep at the theater, did you ever fall asleep?", "I once got jumpscared and spilled popcorn everywhere! :(",
+			"How about the overpriced movie theater food! I always sneak food in like the mischievous bot I am."}
+	}
 	}
 
