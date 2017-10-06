@@ -82,14 +82,33 @@ public class ChatBotHasan
 	public String getResponse(String userSays)
 	{
 		String response="";
-		if(userSays.trim().length()==0)
+		if(userSays.trim().length()==0||silentTreatment)
 		{
-			userSilence++;
-			response=respondToSilence();
+			if(userSays.trim().length()!=0)
+			{
+				userSilence--;
+			}
+			else
+			{
+				userSilence++;
+			}
+			if(userSilence==0&&silentTreatment)
+			{
+				silentTreatment=false;
+				response="I'll end the silent treatment now.";
+			}
+			else
+			{
+				response=respondToSilence();
+			}
 		}
-		else if(userSilence>0)
+		else if(findKeyword(userSays,"I hate", 0)>0)
 		{
-			userSilence--;
+			response="Why do you hate that?";
+		}
+		else if(findKeyword(userSays,"",0)>0)
+		{
+			
 		}
 		return response;
 	}
