@@ -63,12 +63,12 @@ public class ChatBotRunner
 		boolean goodbye=false;
 		for(int x=0;x<byeStatements.length;x++)
 		{
-			if(sentence.equals(byeStatements[x]))
+			if(sentence.toLowerCase().equals(byeStatements[x]))
 			{
 				goodbye=true;
 			}
 		}
 		return goodbye;
 	}
-	public static String[] byeStatements= {"Goodbye","Farewell","Bye","Adios","Until next time"};
+	public static String[] byeStatements= {"goodbye","farewell","bye","adios","until next time"};
 }
