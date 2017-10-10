@@ -19,6 +19,39 @@ public class ChatBotDana {
 	String refPronoun = "";
 	Random r = new Random();
 	
+	private int findKeyword(String statement, String goal, int startPos)
+	{
+		String phrase = statement.trim().toLowerCase();
+		goal = goal.toLowerCase();
+
+		int psn = phrase.indexOf(goal, startPos);
+
+		while (psn >= 0)
+		{
+			String before = " ", after = " ";
+			if (psn > 0)
+			{
+				before = phrase.substring(psn - 1, psn);
+			}
+			if (psn + goal.length() < phrase.length())
+			{
+				after = phrase.substring(psn + goal.length(),psn + goal.length() + 1);
+			}
+
+			if (((before.compareTo("a") < 0) || (before.compareTo("z") > 0)) && ((after.compareTo("a") < 0) || (after.compareTo("z") > 0)))
+			{
+				return psn;
+			}
+			psn = phrase.indexOf(goal, psn + 1);
+		}
+		return -1;
+	}
+	 
+	private int findKeyword(String statement, String goal)
+	{
+		return findKeyword (statement, goal, 0);
+	}
+	
 	//creates an array of random topics to talk about with the user
 	private String [] randomMusicTopic = {"band", "song", "genre", "artist"};
 	
@@ -29,7 +62,7 @@ public class ChatBotDana {
 		return "What is your favorite " + chosenMusicTopic + "?";
 	}
 	
-	private String [] randomQuestions = {"Who would you say is the most popular artist of this decade?", "What is the best way to listen to music?" , "Have you been to any concerts?", "Do you like 		singing?", "What's the best genre?", "Is there anyone in the world who doesn't like music?"};
+	private String [] randomQuestions = {"Who would you say is the most popular artist of this decade?", "What is the best way to listen to music?" , "Have you been to any concerts?", "Do you like singing?", "What's the best genre?", "Is there anyone in the world who doesn't like music?"};
 	
 	private String getRandomQuestion()
 	{
@@ -38,11 +71,20 @@ public class ChatBotDana {
 	
 	//creates an array of possible random responses
 	private String [] randomPositiveResponses = {"I also love " + refPronoun + "." , "I also like " +refPronoun + ".", "It's the best!", "I agree!", "That's cool!"};
-	private String [] randomNegativeResponses = {"Oh, I hate " + refPronoun + "." , "Really? " + refPronoun + "? I disagree.", "That's terrible sense of taste." , "Ew!"};
+	private String [] randomNegativeResponses = {"Oh, I hate " + refPronoun + "." , "Really? " + refPronoun + "I disagree.", "That's terrible sense of taste." , "Ew!"};
 	private String [] randomNeutralResponses = {"Oh, please, tell me more." , "Why do you think that is?" , "How interesting.", "What else do you like?"};
 	//gets a response to send to the user 
 	public String getResponse(String statement)
 	{
+		if (findKeyword(statement, "no") >= 0)
+		{
+			emotion--;
+		}
+		if (findKeyword(statement, "yes") >= 0)
+		{
+			emotion++;
+		}
+		
 		String chosenResponse = "";
 		statement = statement.trim();
 		String response = "";
@@ -52,7 +94,7 @@ public class ChatBotDana {
 			chosenResponse = getRandomStarterQuestion();
 		}
 		
-		if (responseCount%3 == 0)
+		if (responseCount%2 == 0)
 		{
 			chosenResponse = getRandomQuestion();
 		}
@@ -78,9 +120,9 @@ public class ChatBotDana {
 		}
 		else
 		{
-			response = chosenResponse + "."; 
+			response = chosenResponse; 
 		}
-		
+		responseCount++;
 		return response; 
 	}
 }
