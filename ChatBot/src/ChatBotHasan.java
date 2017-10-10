@@ -67,7 +67,7 @@ public class ChatBotHasan
 	}
 	public String getGreeting()
 	{
-		return greetings[getRandomInteger(0,greetings.length)];
+		return greetings[getRandomInteger(0,greetings.length-1)];
 	}
 	private int getRandomInteger(int low, int high)
 	{
@@ -106,9 +106,17 @@ public class ChatBotHasan
 		{
 			response="Why do you hate that?";
 		}
-		else if(findKeyword(userSays,"",0)>0)
+		else if(findKeyword(userSays,"I don't like",0)>0)
 		{
-			
+			response="Why don't you like it?";
+		}
+		else if(findKeyword(userSays,"because",0)>0)
+		{
+			response=becauseResponses[getRandomInteger(0,becauseResponses.length-1)];
+		}
+		else
+		{
+			response=conversationTopics[getRandomInteger(0,conversationTopics.length-1)];
 		}
 		return response;
 	}
@@ -136,6 +144,7 @@ public class ChatBotHasan
 		return "...";
 	}
 	private String[] greetings= {"Hello!","Hi!","Howdy!","What's up?"};
-	private String[] tvShows= {};
-	private String[] tvGenres= {};
+	private String[] becauseResponses= {"Interesting.","Oh.","Okay."};
+	private String[] conversationTopics= {"What is your favorite type of TV show?",""};
+	private String[] tvGenres= {"action","comedy","romance","mystery"};
 }

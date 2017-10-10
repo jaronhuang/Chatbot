@@ -41,7 +41,7 @@ public class ChatBotDana {
 	private String [] randomNegativeResponses = {"Oh, I hate " + refPronoun + "." , "Really? " + refPronoun + "? I disagree.", "That's terrible sense of taste." , "Ew!"};
 	private String [] randomNeutralResponses = {"Oh, please, tell me more." , "Why do you think that is?" , "How interesting.", "What else do you like?"};
 	//gets a response to send to the user 
-	private String getResponse(String statement)
+	public String getResponse(String statement)
 	{
 		String chosenResponse = "";
 		statement = statement.trim();

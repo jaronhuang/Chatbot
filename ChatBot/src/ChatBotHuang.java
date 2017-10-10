@@ -111,7 +111,7 @@ public class ChatBotHuang
 	
 	private String getRandomStatement()
 	{
-		random r = new Random();
+		Random r = new Random();
 		return randomFillerStatement [r.nextInt(randomFillerStatement.length)];
 	}
 	private String getRandomGuess()
@@ -130,7 +130,6 @@ public class ChatBotHuang
 			"You're a genius! How'd you guess my favorite movie character?"};
 	private String [] randomFillerStatement = {"Tell me about your most recent movie you watched.", "Give me a good movie to watch!",
 			"I remember when I fell asleep at the theater, did you ever fall asleep?", "I once got jumpscared and spilled popcorn everywhere! :(",
-			"How about the overpriced movie theater food! I always sneak food in like the mischievous bot I am."}
-	}
-	}
+			"How about the overpriced movie theater food! I always sneak food in like the mischievous bot I am."};
+}
 
