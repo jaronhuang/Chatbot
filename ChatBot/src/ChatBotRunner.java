@@ -41,7 +41,7 @@ public class ChatBotRunner
 				statement = in.nextLine();
 			}
 		}
-		
+		in.close();
 	}
 	
 }
