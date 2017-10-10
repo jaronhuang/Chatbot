@@ -172,7 +172,7 @@ public class ChatBotHasan
 	}
 	private String[] greetings= {"Hello!","Hi!","Howdy!","What's up?"};
 	private String[] becauseResponses= {"Interesting.","Oh.","Okay."};
-	private String[] conversationTopics= {"What is your favorite type of TV show?","What is your favorite TV show?","How many TV shows do you watch?"};
-	private String[] tvGenres= {"action","comedy","romance","mystery"};
+	private String[] conversationTopics= {"What is your favorite type of TV show?","What is your favorite TV show?","How many TV shows do you watch?","How often do you watch TV?","Who is your favorite TV character?"};
+	private String[] tvGenres= {"action","comedy","romance","mystery","drama","science fiction","fantasy"};
 	private String[] likeResponses= {"Well, I can't say for certain.","Just a little bit.","Yes, it's really cool!","I've never really cared much for it."};
 }
