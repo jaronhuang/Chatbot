@@ -62,7 +62,7 @@ public class ChatBotDana {
 		return "What is your favorite " + chosenMusicTopic + "?";
 	}
 	
-	private String [] randomQuestions = {"Who would you say is the most popular artist of this decade?", "What is the best way to listen to music?" , "Have you been to any concerts?", "Do you like singing?", "What's the best genre?", "Is there anyone in the world who doesn't like music?"};
+	private String [] randomQuestions = {"Who would you say is the most popular artist of this decade?", "What is the best way to listen to music?" , "Have you been to any concerts?", "Do you like singing?", "What's the best genre?", "Is there anyone in the world who doesn't like music?" , "How often do you listen to music?" , "Do you ever get sick of music?", "Do you like anyone specific?" , "What is your favorite band?"};
 	
 	private String getRandomQuestion()
 	{
@@ -70,9 +70,9 @@ public class ChatBotDana {
 	}
 	
 	//creates an array of possible random responses
-	private String [] randomPositiveResponses = {"I also love " + refPronoun + "." , "I also like " +refPronoun + ".", "It's the best!", "I agree!", "That's cool!"};
-	private String [] randomNegativeResponses = {"Oh, I hate " + refPronoun + "." , "Really? " + refPronoun + "I disagree.", "That's terrible sense of taste." , "Ew!"};
-	private String [] randomNeutralResponses = {"Oh, please, tell me more." , "Why do you think that is?" , "How interesting.", "What else do you like?"};
+	private String [] randomPositiveResponses = {"I also love " + refPronoun + "." , "I also like " +refPronoun + ".", "It's the best!", "I agree!", "That's cool!" , "Wow!", "Awesome.", "Love it!" , "Good opinion."};
+	private String [] randomNegativeResponses = {"Oh, I hate " + refPronoun + "." , "Really? " + refPronoun + "I disagree.", "That's terrible sense of taste." , "Ew!" , "I don't agree." , "That's unfortunate.", "Now that's ridiculous.", "Who raised you?"};
+	private String [] randomNeutralResponses = {"Oh, please, tell me more." , "Why do you think that is?" , "How interesting.", "What else do you like?", "That's cool." , "Oh, nice." , "Okay."};
 	//gets a response to send to the user 
 	public String getResponse(String statement)
 	{
