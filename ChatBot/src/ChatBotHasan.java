@@ -1,6 +1,6 @@
 /*
 *	Author: Amir Hasan
-*	Last Updated: 10-6-17
+*	Last Updated: 10-9-17
 *	Description: My chatbot, with the theme of TV shows.
 */
 public class ChatBotHasan
@@ -28,7 +28,11 @@ public class ChatBotHasan
 				}
 				else
 				{
-					where=testResponse.indexOf(testKeyword,where);
+					where=testResponse.indexOf(testKeyword,where+1);
+					if(where<0)
+					{
+						checking=false;
+					}
 				}
 			}
 		}
@@ -45,7 +49,7 @@ public class ChatBotHasan
 				}
 				else
 				{
-					where=testResponse.indexOf(testKeyword,where);
+					where=testResponse.indexOf(testKeyword,where+1);
 					while(checking)
 					{
 						beforeThing=testResponse.substring(where-1, where);
@@ -57,7 +61,11 @@ public class ChatBotHasan
 						}
 						else
 						{
-							where=testResponse.indexOf(testKeyword,where);
+							where=testResponse.indexOf(testKeyword,where+1);
+							if(where<0)
+							{
+								checking=false;
+							}
 						}
 					}
 				}
@@ -114,6 +122,25 @@ public class ChatBotHasan
 		{
 			response=becauseResponses[getRandomInteger(0,becauseResponses.length-1)];
 		}
+		else if(findKeyword(userSays,"My favorite",0)>0)
+		{
+			if(findKeyword(userSays,"genre",0)>0)
+			{
+				response="Oh, cool! My favorite TV show genre is "+tvGenres[getRandomInteger(0,tvGenres.length-1)]+".";
+			}
+			else if(findKeyword(userSays,"show",0)>0)
+			{
+				response="That's a good TV show!";
+			}
+			else
+			{
+				response="Neat!";
+			}
+		}
+		else if(findKeyword(userSays,"Do you like",0)>0)
+		{
+			response=likeResponses[getRandomInteger(0,likeResponses.length-1)];
+		}
 		else
 		{
 			response=conversationTopics[getRandomInteger(0,conversationTopics.length-1)];
@@ -145,6 +172,7 @@ public class ChatBotHasan
 	}
 	private String[] greetings= {"Hello!","Hi!","Howdy!","What's up?"};
 	private String[] becauseResponses= {"Interesting.","Oh.","Okay."};
-	private String[] conversationTopics= {"What is your favorite type of TV show?",""};
+	private String[] conversationTopics= {"What is your favorite type of TV show?","What is your favorite TV show?","How many TV shows do you watch?"};
 	private String[] tvGenres= {"action","comedy","romance","mystery"};
+	private String[] likeResponses= {"Well, I can't say for certain.","Just a little bit.","Yes, it's really cool!","I've never really cared much for it."};
 }

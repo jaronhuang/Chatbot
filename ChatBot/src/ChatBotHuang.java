@@ -72,7 +72,7 @@ public class ChatBotHuang
 		}
 		else if (findKeyword(statement, "Star Wars", 0) >= 9)
 		{
-			response = "Star Wars is one of my favorite frachise!";
+			response = "Star Wars is one of my favorite franchises!";
 			emotion++;
 		}
 		else if (findKeyword(statement, "Dom", 0) >= 0 || findKeyword(statement, "Brian", 0) >= 0 || findKeyword(statement, "Roman", 0) >= 0)
@@ -123,7 +123,7 @@ public class ChatBotHuang
 	private String [] randomMovieGenre = {"Do you like to watch action movies?", "Do you like to watch horror movies?", 
 			"Do you like to watch adventure movies?", " Do you like to watch comedy movies?"};
 	private String [] randomDislikeMovie = {"What movies did you not enjoy?", "What movie was overhyped in your opinion?",
-			"What movie franchise do you not like?", "Which villian do you dislike?", "Did you enjoy watching IT?"};
+			"What movie franchise do you not like?", "Which villain do you dislike?", "Did you enjoy watching IT?"};
 	private String [] randomEnjoyMovie = {"What is your favorite movie?", "What movie franchise is your favorite?",
 			"Who is your favorite movie character of all time?", "Who is your favorite superhero?"};
 	private String [] randomGuessed = {"How did you guess my favorite movie character?!?!", "Who told you my favorite movie character?", 
