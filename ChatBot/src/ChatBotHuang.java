@@ -1,5 +1,6 @@
 import java.util.Random;
 import java.lang.Math;
+
 /*
  * Jaron Huang
  * 10/4/17
@@ -129,7 +130,7 @@ public class ChatBotHuang
 	private String [] randomGuessed = {"How did you guess my favorite movie character?!?!", "Who told you my favorite movie character?", 
 			"You're a genius! How'd you guess my favorite movie character?"};
 	private String [] randomFillerStatement = {"Tell me about your most recent movie you watched.", "Give me a good movie to watch!",
-			"I remember when I fell asleep at the theater, did you ever fall asleep?", "I once got jumpscared and spilled popcorn everywhere! :(",
+			"I remember when I fell asleep at the theater, did you ever fall asleep?", "I once got jumpscared and spilled popcorn everywhere!",
 			"How about the overpriced movie theater food! I always sneak food in like the mischievous bot I am."};
 }
 
