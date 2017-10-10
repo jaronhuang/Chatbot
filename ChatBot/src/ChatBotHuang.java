@@ -1,5 +1,6 @@
 import java.util.Random;
 import java.lang.Math;
+
 /*
  * Jaron Huang
  * 10/4/17
