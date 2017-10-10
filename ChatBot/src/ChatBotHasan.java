@@ -7,6 +7,7 @@ public class ChatBotHasan
 {
 	int userSilence=0;
 	boolean silentTreatment=false;
+	boolean userRespond=false;
 	private int findKeyword(String response, String keyword, int startPos)
 	{
 		String testResponse=response.toLowerCase();
@@ -112,7 +113,14 @@ public class ChatBotHasan
 		}
 		else if(findKeyword(userSays,"I hate", 0)>0)
 		{
-			response="Why do you hate that?";
+			if(findKeyword(userSays,"you",findKeyword(userSays,"I hate", 0))>0)
+			{
+				response=upsetBot[getRandomInteger(0,upsetBot.length-1)]+" :(";
+			}
+			else
+			{
+				response="Why do you hate that?";
+			}
 		}
 		else if(findKeyword(userSays,"I don't like",0)>0)
 		{
@@ -120,11 +128,11 @@ public class ChatBotHasan
 		}
 		else if(findKeyword(userSays,"because",0)>0)
 		{
-			response=becauseResponses[getRandomInteger(0,becauseResponses.length-1)];
+			response=neutralResponses[getRandomInteger(0,neutralResponses.length-1)];
 		}
 		else if(findKeyword(userSays,"My favorite",0)>0)
 		{
-			if(findKeyword(userSays,"genre",0)>0)
+			if(findKeyword(userSays,"genre",0)>0||(findKeyword(userSays,"show",0)>0&&findKeyword(userSays,"type",0)>0))
 			{
 				response="Oh, cool! My favorite TV show genre is "+tvGenres[getRandomInteger(0,tvGenres.length-1)]+".";
 			}
@@ -134,16 +142,22 @@ public class ChatBotHasan
 			}
 			else
 			{
-				response="Neat!";
+				response=neutralResponses[getRandomInteger(0,neutralResponses.length-1)];
 			}
 		}
 		else if(findKeyword(userSays,"Do you like",0)>0)
 		{
 			response=likeResponses[getRandomInteger(0,likeResponses.length-1)];
 		}
+		else if(userRespond)
+		{
+			response=neutralResponses[getRandomInteger(0,neutralResponses.length-1)];
+			userRespond=false;
+		}
 		else
 		{
 			response=conversationTopics[getRandomInteger(0,conversationTopics.length-1)];
+			userRespond=true;
 		}
 		return response;
 	}
@@ -170,9 +184,10 @@ public class ChatBotHasan
 		}
 		return "...";
 	}
-	private String[] greetings= {"Hello!","Hi!","Howdy!","What's up?"};
-	private String[] becauseResponses= {"Interesting.","Oh.","Okay."};
+	private String[] greetings= {"Hello!","Hi!","Howdy!","What's up?","Hey!"};
+	private String[] neutralResponses= {"Interesting.","Oh.","Okay.","Cool.","Neat."};
 	private String[] conversationTopics= {"What is your favorite type of TV show?","What is your favorite TV show?","How many TV shows do you watch?","How often do you watch TV?","Who is your favorite TV character?"};
 	private String[] tvGenres= {"action","comedy","romance","mystery","drama","science fiction","fantasy"};
 	private String[] likeResponses= {"Well, I can't say for certain.","Just a little bit.","Yes, it's really cool!","I've never really cared much for it."};
+	private String[] upsetBot= {"You're mean.","Why would you say that?","Ouch.","I have feelings too, sorta."};
 }

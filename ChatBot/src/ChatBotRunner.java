@@ -22,7 +22,7 @@ public class ChatBotRunner
 				statement = in.nextLine();
 			}
 		}
-		if (response.toLowerCase().equals("music"))
+		else if (response.toLowerCase().equals("music"))
 		{
 			ChatBotDana chatbot1 = new ChatBotDana();
 			System.out.println (chatbot1.getGreeting());
@@ -33,7 +33,7 @@ public class ChatBotRunner
 				statement = in.nextLine();
 			}
 		}
-		if (response.toLowerCase().equals("tv"))
+		else if (response.toLowerCase().equals("tv"))
 		{
 			ChatBotHasan chatbot1 = new ChatBotHasan();
 			System.out.println (chatbot1.getGreeting());
@@ -43,6 +43,10 @@ public class ChatBotRunner
 				System.out.println (chatbot1.getResponse(statement));
 				statement = in.nextLine();
 			}
+		}
+		else
+		{
+			System.out.println("Please respond with movies, music, or tv.");
 		}
 		in.close();
 	}
@@ -58,5 +62,5 @@ public class ChatBotRunner
 		}
 		return goodbye;
 	}
-	public static String[] byeStatements= {"Goodbye","Farewell","Bye"};
+	public static String[] byeStatements= {"Goodbye","Farewell","Bye","Adios","Until next time"};
 }
