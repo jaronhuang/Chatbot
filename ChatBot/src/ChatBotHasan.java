@@ -179,6 +179,7 @@ public class ChatBotHasan
 			}
 			if(userSilence==4)
 			{
+				silentTreatment=true;
 				return "Fine, I'm gonna give you the silent treatment as well!";
 			}
 		}

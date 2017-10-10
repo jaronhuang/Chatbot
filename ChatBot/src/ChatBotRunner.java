@@ -10,43 +10,51 @@ public class ChatBotRunner
 		String statement = in.nextLine();
 		System.out.println ("Do you want to talk about movies, music, or TV shows?");
 		System.out.println("Please respond with movies, music, or tv.");
-		String response = in.nextLine();
-		if (response.toLowerCase().equals("movies"))
+		boolean userChose=false;
+		while(!userChose)
 		{
-			ChatBotHuang chatbot1 = new ChatBotHuang();
-			System.out.println (chatbot1.getGreeting());
-			statement = in.nextLine();
-			while (!byeCheck(statement))
+			String response = in.nextLine();
+			if (response.toLowerCase().equals("movies"))
 			{
-				System.out.println (chatbot1.getResponse(statement));
+				userChose=true;
+				ChatBotHuang chatbot1 = new ChatBotHuang();
+				System.out.println (chatbot1.getGreeting());
 				statement = in.nextLine();
+				while (!byeCheck(statement))
+				{
+					System.out.println (chatbot1.getResponse(statement));
+					statement = in.nextLine();
+				}
 			}
-		}
-		else if (response.toLowerCase().equals("music"))
-		{
-			ChatBotDana chatbot1 = new ChatBotDana();
-			System.out.println (chatbot1.getGreeting());
-			statement = in.nextLine();
-			while (!byeCheck(statement))
+			else if (response.toLowerCase().equals("music"))
 			{
-				System.out.println (chatbot1.getResponse(statement));
+				userChose=true;
+				ChatBotDana chatbot1 = new ChatBotDana();
+				System.out.println (chatbot1.getGreeting());
 				statement = in.nextLine();
+				while (!byeCheck(statement))
+				{
+					System.out.println (chatbot1.getResponse(statement));
+					statement = in.nextLine();
+				}
 			}
-		}
-		else if (response.toLowerCase().equals("tv"))
-		{
-			ChatBotHasan chatbot1 = new ChatBotHasan();
-			System.out.println (chatbot1.getGreeting());
-			statement = in.nextLine();
-			while (!byeCheck(statement))
+			else if (response.toLowerCase().equals("tv"))
 			{
-				System.out.println (chatbot1.getResponse(statement));
+				userChose=true;
+				ChatBotHasan chatbot1 = new ChatBotHasan();
+				System.out.println (chatbot1.getGreeting());
 				statement = in.nextLine();
+				while (!byeCheck(statement))
+				{
+					System.out.println (chatbot1.getResponse(statement));
+					statement = in.nextLine();
+				}
 			}
-		}
-		else
-		{
-			System.out.println("Please respond with movies, music, or tv.");
+			else
+			{
+				System.out.println("That was not a valid choice.");
+				System.out.println("Please respond with movies, music, or tv.");
+			}
 		}
 		in.close();
 	}
