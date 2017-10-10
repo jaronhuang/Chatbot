@@ -62,7 +62,7 @@ public class ChatBotDana {
 		return "What is your favorite " + chosenMusicTopic + "?";
 	}
 	
-	private String [] randomQuestions = {"Who would you say is the most popular artist of this decade?", "What is the best way to listen to music?" , "Have you been to any concerts?", "Do you like singing?", "What's the best genre?", "Is there anyone in the world who doesn't like music?" , "How often do you listen to music?" , "Do you ever get sick of music?", "Do you like anyone specific?" , "What is your favorite band?" , "During what years do you think music was the most interesting?" , "When do you listen to music the most?"};
+	private String [] randomQuestions = {"Who would you say is the most popular artist of this decade?", "What is the best way to listen to music?" , "Have you been to any concerts?", "Do you like singing?", "What's the best genre?", "Is there anyone in the world who doesn't like music?" , "How often do you listen to music?" , "Do you ever get sick of music?", "Do you like any specific artist?" , "What is your favorite band?" , "During what years do you think music was the most interesting?" , "When do you listen to music the most?"};
 	
 	private String getRandomQuestion()
 	{
