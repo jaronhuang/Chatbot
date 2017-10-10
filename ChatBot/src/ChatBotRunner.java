@@ -16,7 +16,7 @@ public class ChatBotRunner
 			ChatBotHuang chatbot1 = new ChatBotHuang();
 			System.out.println (chatbot1.getGreeting());
 			statement = in.nextLine();
-			while (!statement.equals("Bye"))
+			while (!byeCheck(statement))
 			{
 				System.out.println (chatbot1.getResponse(statement));
 				statement = in.nextLine();
@@ -27,7 +27,7 @@ public class ChatBotRunner
 			ChatBotDana chatbot1 = new ChatBotDana();
 			System.out.println (chatbot1.getGreeting());
 			statement = in.nextLine();
-			while (!statement.equals("Bye"))
+			while (!byeCheck(statement))
 			{
 				System.out.println (chatbot1.getResponse(statement));
 				statement = in.nextLine();
@@ -38,7 +38,7 @@ public class ChatBotRunner
 			ChatBotHasan chatbot1 = new ChatBotHasan();
 			System.out.println (chatbot1.getGreeting());
 			statement = in.nextLine();
-			while (!statement.equals("Bye"))
+			while (!byeCheck(statement))
 			{
 				System.out.println (chatbot1.getResponse(statement));
 				statement = in.nextLine();
@@ -46,5 +46,17 @@ public class ChatBotRunner
 		}
 		in.close();
 	}
-	
+	public static boolean byeCheck(String sentence)
+	{
+		boolean goodbye=false;
+		for(int x=0;x<byeStatements.length;x++)
+		{
+			if(sentence.equals(byeStatements[x]))
+			{
+				goodbye=true;
+			}
+		}
+		return goodbye;
+	}
+	public static String[] byeStatements= {"Goodbye","Farewell","Bye"};
 }
