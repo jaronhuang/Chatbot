@@ -70,8 +70,8 @@ public class ChatBotDana {
 	}
 	
 	//creates an array of possible random responses
-	private String [] randomPositiveResponses = {"I also love " + refPronoun + "." , "I also like " +refPronoun + ".", "It's the best!", "I agree!", "That's cool!" , "Wow!", "Awesome.", "Love it!" , "Good opinion."};
-	private String [] randomNegativeResponses = {"Oh, I hate " + refPronoun + "." , "Really? " + refPronoun + "I disagree.", "That's terrible sense of taste." , "Ew!" , "I don't agree." , "That's unfortunate.", "Now that's ridiculous.", "Who raised you?"};
+	private String [] randomPositiveResponses = {"It's the best!", "I agree!", "That's cool!" , "Wow!", "Awesome.", "Love it!" , "Good opinion."};
+	private String [] randomNegativeResponses = {"Really? " + refPronoun + "I disagree.", "That's terrible sense of taste." , "Ew!" , "I don't agree." , "That's unfortunate.", "Now that's ridiculous.", "Who raised you?"};
 	private String [] randomNeutralResponses = {"Oh, please, tell me more." , "Why do you think that is?" , "How interesting.", "What else do you like?", "That's cool." , "Oh, nice." , "Okay."};
 	//gets a response to send to the user 
 	public String getResponse(String statement)
