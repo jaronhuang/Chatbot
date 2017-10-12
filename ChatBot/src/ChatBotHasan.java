@@ -1,6 +1,6 @@
 /*
 *	Author: Amir Hasan
-*	Last Updated: 10-9-17
+*	Last Updated: 10-11-17
 *	Description: My chatbot, with the theme of TV shows.
 */
 public class ChatBotHasan
@@ -119,12 +119,30 @@ public class ChatBotHasan
 			}
 			else
 			{
-				response="Why do you hate that?";
+				response="Why do you hate it?";
+			}
+		}
+		else if(findKeyword(userSays,"I like", 0)>0)
+		{
+			if(findKeyword(userSays,"you",findKeyword(userSays,"I like", 0))>0)
+			{
+				response=flatteredBot[getRandomInteger(0,flatteredBot.length-1)]+" :D";
+			}
+			else
+			{
+				response="Why do you like it?";
 			}
 		}
 		else if(findKeyword(userSays,"I don't like",0)>0)
 		{
-			response="Why don't you like it?";
+			if(findKeyword(userSays,"you",findKeyword(userSays,"I don't like", 0))>0)
+			{
+				response=upsetBot[getRandomInteger(0,upsetBot.length-1)]+" :(";
+			}
+			else
+			{
+				response="Why don't you like it?";
+			}
 		}
 		else if(findKeyword(userSays,"because",0)>0)
 		{
@@ -153,6 +171,10 @@ public class ChatBotHasan
 		{
 			response=neutralResponses[getRandomInteger(0,neutralResponses.length-1)];
 			userRespond=false;
+		}
+		else if(findKeyword(userSays,"Have you",0)>0)
+		{
+			response=haveYou[getRandomInteger(0,haveYou.length-1)];
 		}
 		else
 		{
@@ -191,4 +213,6 @@ public class ChatBotHasan
 	private String[] tvGenres= {"action","comedy","romance","mystery","drama","science fiction","fantasy"};
 	private String[] likeResponses= {"Well, I can't say for certain.","Just a little bit.","Yes, it's really cool!","I've never really cared much for it."};
 	private String[] upsetBot= {"You're mean.","Why would you say that?","Ouch.","I have feelings too, sorta."};
+	private String[] haveYou= {"Yes, actually, I have!","No, I haven't."};
+	private String[] flatteredBot= {"Aww, thanks!","You're cool, too!","You're super awesome!"};
 }
